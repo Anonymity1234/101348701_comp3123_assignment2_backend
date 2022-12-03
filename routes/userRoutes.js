@@ -46,11 +46,14 @@ routes.post('/login', async(req, res) => {
             console.log("I am here inside userMode.fineOne method")
 
             if (err) throw err
+            console.log("I am here inside if (err) throw err")
 // If the user is not found in the database, the response will send a status of 500 and a message saying that the credentials could not be verified.
             if (user == null) {
+                console.log("I am here inside if (user == null)")
                 res.status(500).send({
                     "status": false, "message": "Cannot verify credentials with that username and password."
                 })
+                console.log("I am here inside on line 56")
 
 
 // If the user is found, the password is verified with the verifyPassword method.
