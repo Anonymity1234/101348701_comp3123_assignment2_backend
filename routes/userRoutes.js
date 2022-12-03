@@ -84,8 +84,10 @@ routes.post('/login', async (req, res) => {
                         console.log("I am here inside on line 84")
 
                     }
-                })
-            }
+                }); 
+                console.log("I am here inside on line 88")
+
+            } 
 
         })
 
