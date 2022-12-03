@@ -41,6 +41,7 @@ routes.post('/signup', async (req, res) => {
 // If there is an error with the query, it will throw an error.
 routes.post('/login', async(req, res) => {
     try {
+        console.log("I am here and here and here")
         userModel.findOne({username: req.body.username}, (err, user) => {
             if (err) throw err
 
