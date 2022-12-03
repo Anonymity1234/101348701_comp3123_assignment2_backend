@@ -43,9 +43,9 @@ routes.post('/login', async(req, res) => {
     try {
         console.log("I am here and here and here")
         userModel.findOne({username: req.body.username}, (err, user) => {
+            console.log("I am here inside userMode.fineOne method")
+
             if (err) throw err
-
-
 // If the user is not found in the database, the response will send a status of 500 and a message saying that the credentials could not be verified.
             if (user == null) {
                 res.status(500).send({
