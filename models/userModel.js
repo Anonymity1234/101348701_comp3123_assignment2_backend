@@ -64,13 +64,13 @@ userSchema.pre('save', function(next) {
 // This method takes in a new password and compares it to the password stored in the database.
 // It uses the bcrypt.compare method, which returns a promise. 
 //The method returns true if the passwords match, and false if they don't.
-userSchema.methods.verifyPassword = async function(newPassword) {
+userSchema.methods.verifyPassword = async function(newPassword, callback) {
     console.log("I am here inside userModel on line 68")
 
     const isMatch = await bcrypt.compare(newPassword, this.password);
     console.log("I am here inside userModel on line 71")
 
-    return isMatch;
+    callback(null, isMatch);
 };
 
 module.exports = mongoose.model("user", userSchema)
