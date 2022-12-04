@@ -14,7 +14,6 @@ const routes = express.Router()
 
 //This is for creating a new route for signup and it uses http post method.
 routes.post('/signup', async (req, res) => {
-    console.log('in signup');
     //This try block is used for catching errors.
     try {
 
@@ -26,13 +25,11 @@ routes.post('/signup', async (req, res) => {
         res.status(201).json({
             created_user: newUser
         });
-
-        console.log('signup successful');
+        
         return;
 
         // If there is any error, then this catch block will run and send the response with the status code of 500.
     } catch (err) {
-        console.error('error during signup', err);
         res.status(500).send({
             "status": false, "message": err.message
         })
