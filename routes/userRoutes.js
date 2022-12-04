@@ -23,11 +23,12 @@ routes.post('/signup', async (req, res) => {
         await newUser.save()
 
         // If the user is created successfully, then the response is sent with the status code of 201.
-        return res.status(201).send({
+        res.status(201).send({
             created_user: newUser
         });
 
         console.log('signup successful');
+        return;
 
         // If there is any error, then this catch block will run and send the response with the status code of 500.
     } catch (err) {
