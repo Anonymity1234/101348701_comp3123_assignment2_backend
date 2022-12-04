@@ -27,7 +27,7 @@ routes.post('/signup', async (req, res) => {
             created_user: newUser
         });
 
-        console.log('signup successful', err);
+        console.log('signup successful');
 
         // If there is any error, then this catch block will run and send the response with the status code of 500.
     } catch (err) {
