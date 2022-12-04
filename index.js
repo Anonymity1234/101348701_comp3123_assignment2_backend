@@ -1,10 +1,10 @@
-import micro from "micro-cors";
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes')
 const employeeRoutes = require('./routes/employeeRoutes')
+
+const cors = require('cors')
 
 const DB_URL = "mongodb+srv://kafabnu101:65qX6iKL2ENMmQj@cluster0.xlocajv.mongodb.net/comp3123_assigment1?retryWrites=true&w=majority"
 const PORT_NUM = process.env.PORT || 8089
@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use("/api", userRoutes)
 app.use("/api/emp", employeeRoutes)
-
+app.use(cors())
 
 mongoose.connect(DB_URL, {
     useNewUrlParser: true,
@@ -30,13 +30,4 @@ app.listen(PORT_NUM, () => {
 });
 
 
-function MyApi(req, res) {
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
-  }
-  // handling other requests normally after this
-}
 
-const cors = micro();
-
-export default cors(MyApi);
