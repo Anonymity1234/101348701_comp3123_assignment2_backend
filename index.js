@@ -10,11 +10,11 @@ const DB_URL = "mongodb+srv://kafabnu101:65qX6iKL2ENMmQj@cluster0.xlocajv.mongod
 const PORT_NUM = process.env.PORT || 8089
 const app = express();
 app.options('*', cors()) // include before other routes
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use("/api", userRoutes)
 app.use("/api/emp", employeeRoutes)
-// app.use(cors())
 
 mongoose.connect(DB_URL, {
     useNewUrlParser: true,
