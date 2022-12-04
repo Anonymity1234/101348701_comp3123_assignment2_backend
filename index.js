@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use("/api", userRoutes)
 app.use("/api/emp", employeeRoutes)
-app.use(cors())
+// app.use(cors())
 
 mongoose.connect(DB_URL, {
     useNewUrlParser: true,
