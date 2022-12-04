@@ -1,3 +1,5 @@
+import micro from "micro-cors";
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -26,3 +28,15 @@ mongoose.connect(DB_URL, {
 app.listen(PORT_NUM, () => {
     console.log("Server is listening on port", PORT_NUM);
 });
+
+
+function MyApi(req, res) {
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+  // handling other requests normally after this
+}
+
+const cors = micro();
+
+export default cors(MyApi);
