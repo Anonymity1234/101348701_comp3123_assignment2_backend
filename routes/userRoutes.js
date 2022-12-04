@@ -23,7 +23,7 @@ routes.post('/signup', async (req, res) => {
         await newUser.save()
 
         // If the user is created successfully, then the response is sent with the status code of 201.
-        await res.status(201).send({
+        res.status(201).send({
             created_user: newUser
         });
 
