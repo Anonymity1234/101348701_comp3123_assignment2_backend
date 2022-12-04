@@ -14,7 +14,7 @@ const routes = express.Router()
 
 //This is for creating a new route for signup and it uses http post method.
 routes.post('/signup', async (req, res) => {
-
+    console.log('in signup');
     //This try block is used for catching errors.
     try {
 
